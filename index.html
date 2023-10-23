@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Letter Randomizer</title>
+<style>
+	body {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		background-color: aquamarine;
+	}
+
+	body, a {
+		color: black;
+	}
+
+	#letterContainer {
+	  text-align: center;
+	  font-size: 20em;
+	}
+	
+	#buttonHome {
+		text-align: right;
+	}
+</style>
+<script>
+	var alph = [];
+	function initAlphabet(){
+		alph = [  "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ];
+		nextLetter();
+	}
+	
+	function nextLetter(){			
+		var letter = alph[Math.floor(Math.random()*alph.length)];
+		document.getElementById("letterContainer").innerText = letter;
+		alph = alph.filter(item => item !== letter);
+		if (alph.length === 0)
+			initAlphabet();
+	}
+</script>
+</head>
+
+<body onload="initAlphabet()">
+<div id="letterContainer"></div>
+<div>
+	<div id="buttonHome"><a href="javascript:nextLetter();">Next Letter</a></div>
+</div>
+
+
+</body>
+</html>
