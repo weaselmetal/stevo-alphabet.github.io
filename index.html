@@ -11,15 +11,21 @@
 
 	body, a {
 		color: black;
+		text-decoration: none;
 	}
 
 	#letterContainer {
 	  text-align: center;
-	  font-size: 20em;
+	  font-size: 30em;
 	}
 	
 	#buttonHome {
 		text-align: right;
+	}
+
+	#buttonHome button {
+		font-size: 4em;
+		padding: 10px;
 	}
 </style>
 <script>
@@ -34,15 +40,18 @@
 		document.getElementById("letterContainer").innerText = letter;
 		alph = alph.filter(item => item !== letter);
 		if (alph.length === 0)
+		{
+			alert("Congrats! Puzzle solved!");
 			initAlphabet();
+		}
 	}
 </script>
 </head>
 
 <body onload="initAlphabet()">
 <div id="letterContainer"></div>
-<div>
-	<div id="buttonHome"><a href="javascript:nextLetter();">Next Letter</a></div>
+<div id="buttonHome">
+	<button onclick="nextLetter()">Next Letter</button>
 </div>
 
 
